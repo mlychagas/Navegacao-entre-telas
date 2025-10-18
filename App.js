@@ -1,12 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
+
+
+// npx expo install @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context
+
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import TelaInicial from './screens/TelaInicial';
+import TelaDetalhes from './screens/TelaDetalhes';
+import TelaPerfil from './screens/TelaPerfil';
+
+// Cria a instância do Stack Navigator
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e', // Cor do header
+          },
+          headerTintColor: '#fff', // Cor do texto do header
+          headerTitleStyle: {
+            fontWeight: 'bold', // Estilo do título
+          },
+        }}
+      >
+        <Stack.Screen
+          name="Home"
+          component={TelaInicial}
+          options={{ title: 'Página Inicial' }} // Título customizado
+        />
+        <Stack.Screen
+          name="Detalhes"
+          component={TelaDetalhes}
+        />
+        <Stack.Screen
+          name="Perfil"
+          component={TelaPerfil}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
