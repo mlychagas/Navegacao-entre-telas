@@ -1,4 +1,4 @@
-const API_KEY = 'e5b35cd790583ec7ffbbf90ec40a9c60';
+const API_KEY = 0; // Substitua 0 pela sua chave de API válida entre 'aspas'
 const BASE_URL = 'https://api.themoviedb.org/3';
 // Função para buscar filmes por título
 export const searchMovies = async (query) => {
