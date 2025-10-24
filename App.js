@@ -1,17 +1,15 @@
-
-
 // npx expo install @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context
 
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+// import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import TelaInicial from './screens/TelaInicial';
 import TelaDetalhes from './screens/TelaDetalhes';
-import TelaPerfil from './screens/TelaPerfil';
 
 // Cria a instância do Stack Navigator
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
@@ -20,7 +18,7 @@ export default function App() {
         initialRouteName="Home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#f4511e', // Cor do header
+            backgroundColor: '#8b22e1', 
           },
           headerTintColor: '#fff', // Cor do texto do header
           headerTitleStyle: {
@@ -36,10 +34,6 @@ export default function App() {
         <Stack.Screen
           name="Detalhes"
           component={TelaDetalhes}
-        />
-        <Stack.Screen
-          name="Perfil"
-          component={TelaPerfil}
         />
       </Stack.Navigator>
     </NavigationContainer>
